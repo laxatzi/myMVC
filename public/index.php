@@ -24,10 +24,10 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="product">
         <h2><?= htmlspecialchars($product['name'])?></h2>
-        <p>Price:<?= htmlspecialchars($product['price'])?></p>
+        <p>Description:<?= htmlspecialchars($product['description'])?></p>
 
         </div>
-    }
+
   <?php endforeach; ?>
 </body>
 </html>
