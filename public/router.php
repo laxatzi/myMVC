@@ -1,5 +1,17 @@
 <?php
-// Serve existing files as-is (CSS/JS/images, etc.)
+#Why do we need this file at all?
+
+// The PHP built-in server doesn’t know about .htaccess rewrite rules (unlike Apache).
+// So we provide this router.php to tell it:
+// If it’s a static file → just serve it.
+// Otherwise → pass it to my app (index.php).
+// This way you can have pretty URLs like /users/5 without having an actual users/5 file on disk.
+// So, this little router.php acts like a traffic officer:
+// “If it’s just a file, let Apache/PHP hand it out.”
+// “If it’s a dynamic request, send it into my app.”
+
+#Dissect the code:
+
 // _SERVER['REQUEST_URI'] contains info about the current HTTP request.
 // REQUEST_URI is the part of the URL after your domain/host.
 // The parse_url function can break a URL into its parts. PHP_URL_PATH extracts just the path part of the URL.
