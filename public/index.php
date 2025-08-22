@@ -2,6 +2,9 @@
 
 require "model.php";
 
+$model = new Model();
+$products = $model->getData();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
